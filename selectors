@@ -1,0 +1,59 @@
+locators:
+
+locators type(7 locators):
+id
+class name
+tag name
+linked text (link with anchor tag)
+partial linked text (link with anchor tag)
+css selector
+xpath
+
+NB (selectors):
+1- Avoid usage of alphanumeric value, it may change in every page refresh (dynamic)
+2- Double quotes not accepted
+3- Class can not have space in css selectors
+4- LinkText: make sure the HTML code start with anchor ‘a’
+5- Difference between css and xpath - in css we can not traverse back which is possible in xpath by child-parent relationship
+6- Css selector is 10 times faster than xpath
+7- Copy the value from the HTLM code to void any missing spaces in your text
+
+css selector syntax:
+tagName[attribute='value'] - attribute value is exact same than given value
+tagName[attribute*='value'] - attribute value contains the given value
+tagName#idVlaue or #idValue - in case or id
+tagName.className or .className - in case of className
+
+NB (css selectors):
+1- Leave blank if you don’t want to put tagName
+2- Replace spaces with a dot in case of multiple words class name
+3- #idValue or .classNameValue is also a possible customized css selector
+
+
+xpath syntax:
+//tagName[@attribute='value'] - attribute value is exact same than given value
+//tagName[contains(@attribute,'value')] - attribute value contains the given value
+text based xpath:
+//tagName[text()='value'] - attribute value is exact same than given value
+//tagName[contains(text(),'value')] - attribute value contains the given value
+(xpath)[index]
+
+NB (xpath):
+1- Replace tagName by * if you don’t want to put tagName
+2- Relative xpath does not depend on parent nodes (more reliable)
+3- Absolute xpath is a parent/child path
+4- Xpath starting by HTML are not reliable
+5- We can reach any HTML line by parent-child relationship
+6- Index can be used to choose the right element by using [index]
+
+Parent-Child relationship - to transverse from parent to child:
+//tagName[@Attribute=‘value’]/tagName/tagName
+//tagName[@Attribute=‘value’]//tagName[@Attribute=‘value’]
+
+Child-Parent relationship - to transverse from child to parent:
+//tagName[@Attribute=‘value’]/../../..
+//tagName[@Attribute=‘value’]/parent::tagName/parent::tagName
+
+Sibling relationship:
+//tagName[@Attribute=‘value’]/following-sibling::tagName
+//tagName[@Attribute=‘value’]/preceding-sibling::tagName
